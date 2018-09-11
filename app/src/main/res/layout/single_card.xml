@@ -19,19 +19,45 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="fitCenter"
+            android:src="@drawable/bank"
             android:tint="#fff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/title_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Title"
+            android:textSize="14dp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_imageview" />
+
+        <TextView
+            android:id="@+id/date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/title_textview"
+            app:layout_constraintEnd_toEndOf="@+id/article_imageview"
+            tools:text="10/09/2018" />
+
+        <TextView
+            android:id="@+id/description_textview"
+            android:layout_width="0dp"
+            android:layout_height="86dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/lorem_ipsum_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/title_textview"
+            app:layout_constraintTop_toBottomOf="@+id/title_textview" />
 
     </android.support.constraint.ConstraintLayout>
 

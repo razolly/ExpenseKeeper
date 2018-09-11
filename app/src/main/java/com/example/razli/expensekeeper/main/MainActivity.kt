@@ -1,4 +1,4 @@
-package com.example.razli.expensekeeper
+package com.example.razli.expensekeeper.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -8,11 +8,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.razli.expensekeeper.R
 import com.example.razli.expensekeeper.model.Article
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.single_card.view.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainContract.View {
+
+    override lateinit var presenter: MainContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +44,14 @@ class MainActivity : AppCompatActivity() {
     private fun initRecyclerView(articleList: ArrayList<Article>) {
         val adapter = HorizontalAdapter(articleList)
         recyclerview.adapter = adapter
+
         val layoutManager = GridLayoutManager(this, 1)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerview.layoutManager = layoutManager
+    }
 
-//        recyclerview.layoutManager = LinearLayoutManager(this)
+    override fun showArticles(articles: ArrayList<Article>) {
+
     }
 }
 
@@ -67,9 +73,9 @@ class HorizontalAdapter(var articleList: ArrayList<Article>) : RecyclerView.Adap
     // update the contents of the itemView to reflect the item at the given position.
     override fun onBindViewHolder(p0: CustomViewHolder, p1: Int) {
         //p0.itemView.image_view
-        p0.itemView.title.text = articleList[p1].title
-        p0.itemView.description.text = articleList[p1].description
-        p0.itemView.published_date.text = articleList[p1].publishDate
+        p0.itemView.title_textview.text = articleList[p1].title
+        p0.itemView.description_textview.text = articleList[p1].description
+        p0.itemView.date_textview.text = articleList[p1].publishDate
     }
 
     inner class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view)
