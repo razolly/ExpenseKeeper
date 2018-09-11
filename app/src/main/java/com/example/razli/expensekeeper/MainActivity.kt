@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // todo move this later to presenter
-        val article1 = Article(1, "A Title", "A description")
-        val article2 = Article(1, "A Title", "A description")
-        val article3 = Article(1, "A Title", "A description")
-        val article4 = Article(1, "A Title", "A description")
-        val article5 = Article(1, "A Title", "A description")
-        val article6 = Article(1, "A Title", "A description")
+        val article1 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
+        val article2 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
+        val article3 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
+        val article4 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
+        val article5 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
+        val article6 = Article(1, "A Title", getString(R.string.lorem_ipsum_text))
 
         val articleList = ArrayList<Article>().also {
             it.add(article1)
